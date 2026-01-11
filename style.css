@@ -1,0 +1,22 @@
+* {
+  font-family: sans-serif;
+  color: bisque;
+}
+h1,
+h2,
+h3 {
+  font-weight: 200;
+}
+body {
+  background-color: black;
+  padding: 2em;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  width: fit-content;
+  height: fit-content;
+}
