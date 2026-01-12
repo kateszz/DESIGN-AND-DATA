@@ -21,15 +21,15 @@ var gradient1 = defs
 gradient1
   .append("stop")
   .attr("class", "start")
-  .attr("offset", "70%")
-  .attr("stop-color", "pink")
+  .attr("offset", "0%")
+  .attr("stop-color", "#D90057")
   .attr("stop-opacity", 1);
 
 gradient1
   .append("stop")
   .attr("class", "middle")
   .attr("offset", "20%")
-  .attr("stop-color", "white")
+  .attr("stop-color", "#FFE3ED")
   .attr("stop-opacity", 1);
 
 gradient1
@@ -52,15 +52,15 @@ gradient2
   .append("stop")
   .attr("class", "start")
   .attr("offset", "0%")
-  .attr("stop-color", "pink")
+  .attr("stop-color", "#FFCADF")
   .attr("stop-opacity", 0.8);
 
 gradient2
   .append("stop")
   .attr("class", "")
-  .attr("offset", "10%")
-  .attr("stop-color", "pink")
-  .attr("stop-opacity", 0.5);
+  .attr("offset", "20%")
+  .attr("stop-color", "#D90057")
+  .attr("stop-opacity", 0.3);
 
 gradient2
   .append("stop")
@@ -69,6 +69,42 @@ gradient2
   .attr("stop-color", "black")
   .attr("stop-opacity", 0.5);
 gradient2
+  .append("stop")
+  .attr("class", "end")
+  .attr("offset", "100%")
+  .attr("stop-color", "black")
+  .attr("stop-opacity", 0.1);
+
+var gradient3 = defs
+  .append("radialGradient")
+  .attr("id", "oddGradient")
+  .attr("cx", "50%")
+  .attr("cy", "50%")
+  .attr("r", "50%")
+  .attr("fx", "50%")
+  .attr("fy", "50%");
+
+gradient3
+  .append("stop")
+  .attr("class", "start")
+  .attr("offset", "0%")
+  .attr("stop-color", "#FFCADF")
+  .attr("stop-opacity", 0.7);
+
+gradient3
+  .append("stop")
+  .attr("class", "")
+  .attr("offset", "20%")
+  .attr("stop-color", "green")
+  .attr("stop-opacity", 0.5);
+
+gradient3
+  .append("stop")
+  .attr("class", "")
+  .attr("offset", "70%")
+  .attr("stop-color", "black")
+  .attr("stop-opacity", 0.5);
+gradient3
   .append("stop")
   .attr("class", "end")
   .attr("offset", "100%")
@@ -151,8 +187,12 @@ function randomLines() {
     .attr("cy", function (d) {
       return d.y;
     })
-    .attr("r", 10)
-    .attr("fill", "url(#svgRadialGradient)");
+    .attr("r", function (d, i) {
+      return i * Math.cos(0.8);
+    })
+    .attr("fill", function (d, i) {
+      return i % 6 === 0 ? "url(#oddGradient)" : "url(#svgRadialGradient)";
+    });
 
   //in every case after the first one: transitioning the current 5 paths and circles to the new ones
   currentPaths
