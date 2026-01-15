@@ -95,7 +95,7 @@ gradient3
   .append("stop")
   .attr("class", "")
   .attr("offset", "20%")
-  .attr("stop-color", "green")
+  .attr("stop-color", "#382fed")
   .attr("stop-opacity", 0.5);
 
 gradient3
