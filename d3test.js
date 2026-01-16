@@ -176,7 +176,7 @@ function randomLines() {
     })
     .attr("stroke", "url(#svgBiggerGradient)")
     .attr("fill", "none");
-
+  //same for circles
   currentCircles
     .enter()
     .append("circle")
@@ -210,6 +210,7 @@ function randomLines() {
         d.y
       );
     });
+  //same for circles
   currentCircles
     .transition()
     .duration(TIMING)
